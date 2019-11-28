@@ -1,0 +1,54 @@
+.simpleinput {
+    font-size: 1rem;
+    background: #fff;
+
+
+    .relative {
+        position: relative;
+    }
+
+    input.form-control,
+    select.form-control {
+        height: calc(3.8rem);
+        background: none;
+        z-index: 1;
+        position: relative;
+        border-radius: 0;
+    }
+
+    textarea.form-control {
+        margin-bottom: 10px;
+        background: none;
+    }
+
+    .placeholderlabel {
+        // background: #1D71B8;
+        color: #aaa;
+        padding: 0 15px 2px 15px;
+        position: absolute;
+        bottom: 18px;
+        left: 0px;
+        font-weight: normal;
+        z-index: 0;
+
+        &.combo {
+            padding-right: 35px;
+        }
+    }
+
+    .animatedlabel {
+        // background: #1D71B8;
+        color: #aaa;
+        padding: 0 15px 2px 8px;
+        position: absolute;
+        right: 0px;
+        bottom: 0px;
+        font-weight: normal;
+        z-index: 0;
+        font-size: 0.9rem;
+
+        &.combo {
+            padding-right: 35px;
+        }
+    }
+}
