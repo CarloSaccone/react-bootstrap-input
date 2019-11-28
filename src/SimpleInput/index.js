@@ -3,8 +3,6 @@ import React, { useEffect, useState, useCallback } from 'react';
 import validator from 'validator';
 import classNames from 'classnames';
 import { InputTag, TextField } from './partials';
-import './scss/Fade.scss';
-import './scss/SimpleInput.scss';
 
 const SimpleInput = ({
     formObj,

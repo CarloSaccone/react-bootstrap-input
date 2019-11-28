@@ -5,6 +5,8 @@ import { render } from 'react-dom';
 import SimpleInput from '../../src/SimpleInput';
 import JSONPretty from 'react-json-pretty';
 import './app.css';
+import './scss/Fade.scss';
+import './scss/SimpleInput.scss';
 
 const App = () => {
     const [filter, setfilter] = useState({});
