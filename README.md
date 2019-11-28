@@ -8,6 +8,7 @@ This package provides a simple yet powerful input component with the following f
 -   input-masks and formatting
 
 [GitHub code](https://carlosaccone.github.io/react-bootstrap-input/)
+
 [Working demo on GitHub Pages](https://carlosaccone.github.io/react-bootstrap-input/)
 
 ## basics
@@ -53,8 +54,14 @@ add the required styles (jss version will be published soon!)
     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
     crossOrigin="anonymous"
 />
+<link
+    rel="stylesheet"
+    href="https://carlosaccone.github.io/react-bootstrap-input/main.1e04e9ee7b8d321bec73.css"
+    crossOrigin="anonymous"
+/>
 
 ```
 
 Enjoy!
-![demo](./public/react-bootstrap-input.gif)
+
+![demo](./examples/src/react-bootstrap-input.gif)

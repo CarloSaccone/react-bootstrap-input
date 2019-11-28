@@ -5,8 +5,6 @@ import { render } from 'react-dom';
 import SimpleInput from '../../src/SimpleInput';
 import JSONPretty from 'react-json-pretty';
 import './app.css';
-import './scss/Fade.scss';
-import './scss/SimpleInput.scss';
 
 const App = () => {
     const [filter, setfilter] = useState({});
@@ -27,6 +25,11 @@ const App = () => {
                 rel="stylesheet"
                 href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
                 integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+                crossOrigin="anonymous"
+            />
+            <link
+                rel="stylesheet"
+                href="https://carlosaccone.github.io/react-bootstrap-input/main.1e04e9ee7b8d321bec73.css"
                 crossOrigin="anonymous"
             />
             <header className="App-header">
