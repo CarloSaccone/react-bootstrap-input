@@ -36,6 +36,7 @@ const InputTag = ({ type, value, name, onChange, readonly, autoFocus }) => {
                     name={name}
                     readOnly={readonly}
                     onChange={onNumericValueChange}
+                    autoFocus={autoFocus}
                 />
             );
         case 'percent':
@@ -49,6 +50,7 @@ const InputTag = ({ type, value, name, onChange, readonly, autoFocus }) => {
                     readOnly={readonly}
                     name={name}
                     onChange={onNumericValueChange}
+                    autoFocus={autoFocus}
                 />
             );
         case 'date':
@@ -61,6 +63,7 @@ const InputTag = ({ type, value, name, onChange, readonly, autoFocus }) => {
                     mask="_"
                     readOnly={readonly}
                     onChange={onChange}
+                    autoFocus={autoFocus}
                 />
             );
         default:
@@ -73,6 +76,7 @@ const InputTag = ({ type, value, name, onChange, readonly, autoFocus }) => {
                     className="form-control"
                     readOnly={readonly}
                     placeholder=""
+                    autoFocus={autoFocus}
                 />
             );
     }
