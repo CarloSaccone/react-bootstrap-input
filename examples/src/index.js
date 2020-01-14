@@ -63,6 +63,8 @@ const App = () => {
                                     errorMessage="Please provide a valid email address"
                                 />
                             </div>
+                        </div>
+                        <div className="row">
                             <div className="col">
                                 <SimpleInput
                                     formObj={filter}
@@ -70,6 +72,21 @@ const App = () => {
                                     name="salary"
                                     placeholder="Desired salary"
                                     onChange={filterChange}
+                                />
+                            </div>
+                            <div className="col">
+                                <SimpleInput
+                                    formObj={filter}
+                                    type="date"
+                                    name="birthday"
+                                    placeholder="Birthday (dd/MM/yyyy)"
+                                    onChange={filterChange}
+                                    pattern={
+                                        '^(0[1-9]|[12][0-9]|[3][01])/(0[1-9]|1[012])/[1-2]{1}[0-9]{3}$'
+                                    }
+                                    required
+                                    validated
+                                    errorMessage="Please provide a valid date (dd/MM/yyyy)"
                                 />
                             </div>
                         </div>

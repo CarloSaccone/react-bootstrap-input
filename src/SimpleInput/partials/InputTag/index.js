@@ -57,8 +57,9 @@ const InputTag = ({ type, value, name, onChange, readonly, autoFocus }) => {
             return (
                 <NumberFormat
                     value={value}
+                    name={name}
                     className="form-control"
-                    placeholder="31/01/2015"
+                    // placeholder="31/01/2015"
                     format="##/##/####"
                     mask="_"
                     readOnly={readonly}
