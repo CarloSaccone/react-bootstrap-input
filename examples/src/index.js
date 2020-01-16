@@ -1,22 +1,28 @@
 /***  examples/src/index.js ***/
-import React, { useState } from 'react';
+import React, { useState, useReducer } from 'react';
 import { render } from 'react-dom';
 
-import SimpleInput from '../../src/SimpleInput';
+import { SimpleInput, validationReducer } from '../../src/index';
 import JSONPretty from 'react-json-pretty';
 import './app.css';
 
 const App = () => {
-    const [filter, setfilter] = useState({});
-    const filterChange = updatedItem => {
-        setfilter(updatedItem);
+    const [form, setform] = useState({});
+    // const [validation, setvalidation] = useReducer(reducer, []);
+    const [validation, setvalidation] = useReducer(validationReducer, {});
+
+    const filterChange = formObj => {
+        setform(formObj);
+    };
+    const validationChange = field => {
+        setvalidation(field);
     };
 
     const setValue = () => {
-        setfilter({ name: 'John', email: 'john@doe.com', salary: '50000' });
+        setform({ name: 'John', email: 'john@doe.com', salary: '50000' });
     };
     const resetValue = () => {
-        setfilter({});
+        setform({});
     };
 
     return (
@@ -40,20 +46,22 @@ const App = () => {
                         <div className="row">
                             <div className="col">
                                 <SimpleInput
-                                    formObj={filter}
+                                    formObj={form}
                                     name="name"
                                     placeholder="Your name"
                                     onChange={filterChange}
+                                    onValidationChange={validationChange}
                                     required
                                     validated
                                 />
                             </div>
                             <div className="col">
                                 <SimpleInput
-                                    formObj={filter}
+                                    formObj={form}
                                     name="email"
                                     placeholder="Your email"
                                     onChange={filterChange}
+                                    onValidationChange={validationChange}
                                     required
                                     validated
                                     autoFocus
@@ -67,7 +75,7 @@ const App = () => {
                         <div className="row">
                             <div className="col">
                                 <SimpleInput
-                                    formObj={filter}
+                                    formObj={form}
                                     type="money"
                                     name="salary"
                                     placeholder="Desired salary"
@@ -76,11 +84,12 @@ const App = () => {
                             </div>
                             <div className="col">
                                 <SimpleInput
-                                    formObj={filter}
+                                    formObj={form}
                                     type="date"
                                     name="birthday"
                                     placeholder="Birthday (dd/MM/yyyy)"
                                     onChange={filterChange}
+                                    onValidationChange={validationChange}
                                     pattern={
                                         '^(0[1-9]|[12][0-9]|[3][01])/(0[1-9]|1[012])/[1-2]{1}[0-9]{3}$'
                                     }
@@ -93,9 +102,16 @@ const App = () => {
                     </div>
                     <p>form content is:</p>
                     <div className="box">
-                        <JSONPretty id="json-pretty" data={filter}></JSONPretty>
+                        <JSONPretty id="json-pretty" data={form}></JSONPretty>
                     </div>
-                    <div className="my-5">
+                    <p>form validation is:</p>
+                    <div className="box">
+                        <JSONPretty
+                            id="json-pretty"
+                            data={validation}
+                        ></JSONPretty>
+                    </div>
+                    <div className="py-5">
                         <div
                             className="btn-group"
                             role="group"

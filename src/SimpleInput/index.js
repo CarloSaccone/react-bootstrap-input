@@ -6,10 +6,10 @@ import { InputTag, TextField } from './partials';
 
 const SimpleInput = ({
     formObj,
-    setformValidationObj,
     name,
     placeholder,
     onChange,
+    onValidationChange,
     pattern,
     errorMessage = 'required field',
     required,
@@ -24,17 +24,17 @@ const SimpleInput = ({
     const [isvalid, setisvalid] = useState();
     const [localValue, setlocalValue] = useState('');
 
-    const setValidity = useCallback(value => {
-        const valid = checkIsValid(value);
-        setisvalid(valid);
-        if (setformValidationObj) setformValidationObj({ name, valid });
-    });
-
     useEffect(() => {
         const localval = formObj[name] === 0 ? '0' : formObj[name];
         setlocalValue(localval || '');
-        setValidity(formObj[name]);
-    }, [formObj, name, setValidity]);
+        const valid = checkIsValid(formObj[name]);
+        setisvalid(valid);
+
+        let item = {};
+        item[name] = { valid, error: !valid ? errorMessage : null };
+
+        onValidationChange && onValidationChange(item);
+    }, [formObj]);
 
     const handleChange = event => {
         let { value } = event.target;
@@ -51,7 +51,8 @@ const SimpleInput = ({
         updated[event.target.name] = value;
 
         setlocalValue(value);
-        setValidity(value);
+        const valid = checkIsValid(value);
+
         onChange(updated);
     };
 

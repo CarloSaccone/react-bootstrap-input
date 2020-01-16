@@ -9,11 +9,11 @@ This package provides a simple yet powerful input component with the following f
 
 [GitHub code](https://carlosaccone.github.io/react-bootstrap-input/)
 
-[Working demo on GitHub Pages](https://carlosaccone.github.io/react-bootstrap-input/)
+[Working demo](https://carlosaccone.github.io/react-bootstrap-input/)
 
 ## basics
 
-Install and include:
+1. Install and include:
 
 ```
 npm install react-bootstrap-input
@@ -21,7 +21,7 @@ npm install react-bootstrap-input
 import { SimpleInput } from 'react-bootstrap-input';
 ```
 
-Create a host component representing your form (a filter form in this example), then place in the render function a few input fields:
+2. Create a host component representing your form (a filter form in this example), then place in the render function a few input fields:
 
 ```
 <SimpleInput
@@ -36,7 +36,7 @@ Create a host component representing your form (a filter form in this example), 
 />
 ```
 
-Provide the data-variable representing your form and the change function:
+3. Provide the data-variable representing your form and the change function:
 
 ```
 const [filter, setfilter] = useState({});
@@ -45,7 +45,7 @@ const filterChange = updatedItem => {
 };
 ```
 
-add the required styles (jss version will be published soon!)
+4. add the required styles (jss version will be published soon!)
 
 ```
 <link
@@ -62,6 +62,35 @@ add the required styles (jss version will be published soon!)
 
 ```
 
-Enjoy!
+5. use validation (optional)
 
-![demo](./examples/src/react-bootstrap-input.gif)
+each validated field sends updates (onSet/onChange) in order to tell if the provided value is valid or not, adding the
+errormessage (you can use it to notify users).
+In order to get these updates you must provide the onValidationChange function and combine it with a useReducer in order to get
+validation updates in an easy way
+
+```
+import { SimpleInput, validationReducer } from 'react-bootstrap-input';
+
+const [validation, setvalidation] = useReducer(validationReducer, {});
+
+const validationChange = field => {
+    setvalidation(field);
+};
+```
+
+```
+
+ <SimpleInput
+    formObj={form}
+    name="name"
+    placeholder="Your name"
+    onChange={filterChange}
+    onValidationChange={validationChange}
+    required
+    validated
+/>
+
+```
+
+Enjoy!
