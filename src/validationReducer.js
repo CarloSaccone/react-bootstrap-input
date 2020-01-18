@@ -1,5 +1,5 @@
 const validationReducer = (state, item) => {
-    console.log(item);
+    // console.log(item);
     //add or remove
     if (item.valid) {
         let newitem = {};

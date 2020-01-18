@@ -40,7 +40,7 @@ const SimpleInput = ({
 
     useEffect(
         () => () => {
-            console.log('unmount');
+            // console.log('unmount');
             let item = {
                 name: name,
                 valid: null
