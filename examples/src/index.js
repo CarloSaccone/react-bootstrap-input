@@ -8,7 +8,8 @@ import './app.css';
 
 const App = () => {
     const [form, setform] = useState({});
-    // const [validation, setvalidation] = useReducer(reducer, []);
+    const [show, setshow] = useState({});
+
     const [validation, setvalidation] = useReducer(validationReducer, {});
 
     const filterChange = formObj => {
@@ -47,12 +48,17 @@ const App = () => {
                             <div className="col">
                                 <SimpleInput
                                     formObj={form}
-                                    name="name"
-                                    placeholder="Your name"
+                                    type="date"
+                                    name="birthday"
+                                    placeholder="Birthday (dd/MM/yyyy)"
                                     onChange={filterChange}
                                     onValidationChange={validationChange}
+                                    pattern={
+                                        '^(0[1-9]|[12][0-9]|[3][01])/(0[1-9]|1[012])/[1-2]{1}[0-9]{3}$'
+                                    }
                                     required
                                     validated
+                                    errorMessage="Please provide a valid date (dd/MM/yyyy)"
                                 />
                             </div>
                             <div className="col">
@@ -83,20 +89,23 @@ const App = () => {
                                 />
                             </div>
                             <div className="col">
-                                <SimpleInput
-                                    formObj={form}
-                                    type="date"
-                                    name="birthday"
-                                    placeholder="Birthday (dd/MM/yyyy)"
-                                    onChange={filterChange}
-                                    onValidationChange={validationChange}
-                                    pattern={
-                                        '^(0[1-9]|[12][0-9]|[3][01])/(0[1-9]|1[012])/[1-2]{1}[0-9]{3}$'
-                                    }
-                                    required
-                                    validated
-                                    errorMessage="Please provide a valid date (dd/MM/yyyy)"
-                                />
+                                {show && (
+                                    <SimpleInput
+                                        formObj={form}
+                                        name="name"
+                                        placeholder="Your name"
+                                        onChange={filterChange}
+                                        onValidationChange={validationChange}
+                                        required
+                                        validated
+                                    />
+                                )}
+                                <button
+                                    type="button"
+                                    onClick={() => setshow(!show)}
+                                >
+                                    show/hide field
+                                </button>
                             </div>
                         </div>
                     </div>

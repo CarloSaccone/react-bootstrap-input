@@ -30,11 +30,25 @@ const SimpleInput = ({
         const valid = checkIsValid(formObj[name]);
         setisvalid(valid);
 
-        let item = {};
-        item[name] = { valid, error: !valid ? errorMessage : null };
+        let item = {
+            name: name,
+            valid: { valid, error: !valid ? errorMessage : null }
+        };
 
         onValidationChange && onValidationChange(item);
     }, [formObj]);
+
+    useEffect(
+        () => () => {
+            console.log('unmount');
+            let item = {
+                name: name,
+                valid: null
+            };
+            onValidationChange && onValidationChange(item);
+        },
+        []
+    );
 
     const handleChange = event => {
         let { value } = event.target;
