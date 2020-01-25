@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Heisenberg",
+    "email": "heisenberg@yop.com",
+    "salary": 1000000
+  },
+  {
+    "name": "Planck",
+    "email": "planck@yop.com",
+    "salary": 900000
+  },
+  {
+    "name": "Bohr",
+    "email": "bohr@yop.com",
+    "salary": 800000
+  },
+  {
+    "name": "Dirac",
+    "email": "dirac@yop.com",
+    "salary": 1100000
+  }
+]
