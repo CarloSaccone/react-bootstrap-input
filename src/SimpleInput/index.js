@@ -105,7 +105,7 @@ const SimpleInput = ({
     });
 
     return (
-        <div className="simpleinput">
+        <div className={readonly ? 'simpleinput readonly' : 'simpleinput'}>
             <div className="relative">
                 <InputTag
                     type={type}
