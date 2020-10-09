@@ -23,6 +23,11 @@ import { SimpleInput } from 'react-bootstrap-input';
 
 2. Create a host component representing your form (a filter form in this example), then place in the render function a few input fields:
 
+HINT: predefined patterns are available for numbers and currency:
+
+type="number|currency|percent|percent1"
+currency="\$"
+
 ```
 <SimpleInput
     formObj={filter}
