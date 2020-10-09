@@ -2,12 +2,12 @@
 
 This package provides a simple yet powerful input component with the following features:
 
--   pattern-based validation
--   form-group validation
--   data-binding
--   input-masks and formatting
+- pattern-based validation
+- form-group validation
+- data-binding
+- input-masks and formatting
 
-[GitHub code](https://carlosaccone.github.io/react-bootstrap-input/)
+[GitHub code](https://github.com/CarloSaccone/react-bootstrap-input)
 
 [Working demo](https://carlosaccone.github.io/react-bootstrap-input/)
 
