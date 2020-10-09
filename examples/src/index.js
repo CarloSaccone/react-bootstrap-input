@@ -34,11 +34,7 @@ const App = () => {
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossOrigin="anonymous"
       />
-      <link
-        rel="stylesheet"
-        href="https://carlosaccone.github.io/react-bootstrap-input/main.1e04e9ee7b8d321bec73.css"
-        crossOrigin="anonymous"
-      />
+      <link rel="stylesheet" href="/main.css" crossOrigin="anonymous" />
       <header className="App-header">
         <div className="container">
           <h1 className="pt-5">react-bootstrap-input</h1>

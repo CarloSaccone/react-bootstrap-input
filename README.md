@@ -61,7 +61,7 @@ const filterChange = updatedItem => {
 />
 <link
     rel="stylesheet"
-    href="https://carlosaccone.github.io/react-bootstrap-input/main.1e04e9ee7b8d321bec73.css"
+    href="https://carlosaccone.github.io/react-bootstrap-input/main.css"
     crossOrigin="anonymous"
 />
 
