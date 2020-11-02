@@ -66,11 +66,11 @@ const SimpleInput = ({
       value = value.replace(/\./g, "");
       value = value.replace(/,/g, "");
       value = value.replace(/ %/g, "");
-      updated[event.target.name] = value;
+      updated[event.target.name] = Number(value);
     } else if (value && type === "percent1") {
       value += "";
       value = value.replace(/ %/g, "");
-      updated[event.target.name] = Number(value) / 100 + "";
+      updated[event.target.name] = Number(value) / 100;
     } else {
       updated[event.target.name] = value;
     }
