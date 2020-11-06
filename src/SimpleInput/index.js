@@ -60,7 +60,7 @@ const SimpleInput = ({
     const regex = new RegExp(`(${currency} | ${currency})`, "g");
     const updated = { ...formObj };
 
-    if (value && (type === "money" || type === "percent")) {
+    if (value && (type === "money" || type === "percent"|| type === "number")) {
       value += "";
       value = value.replace(regex, "");
       value = value.replace(/\./g, "");
