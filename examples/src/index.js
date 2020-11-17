@@ -96,6 +96,15 @@ const App = () => {
               <div className="col">
                 <SimpleInput
                   formObj={form}
+                  type="tel"
+                  name="tel"
+                  placeholder="A phone number"
+                  onChange={filterChange}
+                />
+              </div>
+              <div className="col">
+                <SimpleInput
+                  formObj={form}
                   type="percent1"
                   name="percent"
                   placeholder="Just a percent"

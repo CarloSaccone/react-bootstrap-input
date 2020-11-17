@@ -50,6 +50,21 @@ const InputTag = ({
           autoFocus={autoFocus}
         />
       );
+      case "tel":
+        suffix = ``;
+        return (
+          <NumberFormat
+            type="tel"
+            placeholder=""
+            value={value}
+            className="form-control"
+            suffix={suffix}
+            name={name}
+            readOnly={readonly}
+            onChange={onNumericValueChange}
+            autoFocus={autoFocus}
+          />
+        );
     case "percent":
     case "percent1":
       return (
