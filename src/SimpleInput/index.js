@@ -115,6 +115,7 @@ const SimpleInput = ({
   });
 
   const wrapperClass =  classNames("simpleinput", {
+    "with-text": localValue,
     "with-errors": validated && !isvalid,
     "readonly": readonly,
   });
