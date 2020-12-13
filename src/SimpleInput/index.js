@@ -114,8 +114,13 @@ const SimpleInput = ({
     "fade-in": !isvalid,
   });
 
+  const wrapperClass =  classNames("simpleinput", {
+    "with-errors": validated && !isvalid,
+    "readonly": readonly,
+  });
+
   return (
-    <div className={readonly ? "simpleinput readonly" : "simpleinput"}>
+    <div className={wrapperClass}>
       <div className="relative">
         <InputTag
           type={type}
