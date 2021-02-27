@@ -25,6 +25,8 @@ const SimpleInput = ({
   const [isvalid, setisvalid] = useState();
   const [localValue, setlocalValue] = useState("");
 
+  const inputField = React.createRef();
+
   useEffect(() => {
     let localval = formObj[name] === 0 ? "0" : formObj[name];
 
@@ -120,10 +122,16 @@ const SimpleInput = ({
     "readonly": readonly,
   });
 
+  const setFocus = ()=>{
+    if(inputField.current && inputField.current.focus)
+      inputField.current.focus()
+  }
+
   return (
     <div className={wrapperClass}>
       <div className="relative">
         <InputTag
+          inputRef={inputField}
           type={type}
           value={localValue}
           name={name}
@@ -137,6 +145,7 @@ const SimpleInput = ({
           children={children}
           className={placeholderclass}
           text={placeholder}
+          onClick={setFocus}
           ns={ns}
         />
         <TextField

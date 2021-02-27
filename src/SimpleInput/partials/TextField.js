@@ -1,9 +1,9 @@
 /** @format */
 import React from 'react';
 
-const TextField = ({ children, text, ns, className }) => {
+const TextField = ({ children, text, ns, className, onClick }) => {
     if (!children || !children.length)
-        return <span className={className}>{text}</span>;
+        return <span className={className} onClick={onClick}>{text}</span>;
 
     const childrenWithExtraProps = React.Children.map(children, child => {
         return React.cloneElement(child, {

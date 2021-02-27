@@ -161,7 +161,7 @@
   bottom: 18px;
   left: 0px;
   font-weight: normal;
-  z-index: 0;
+  z-index: 1;
 }
 .simpleinput .placeholderlabel.combo {
   padding-right: 35px;
