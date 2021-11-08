@@ -21,6 +21,7 @@ const SimpleInput = ({
   max,
   ns,
   children,
+  thousandSeparator = ".",
 }) => {
   const [isvalid, setisvalid] = useState();
   const [localValue, setlocalValue] = useState("");
@@ -62,13 +63,19 @@ const SimpleInput = ({
     const regex = new RegExp(`(${currency} | ${currency})`, "g");
     const updated = { ...formObj };
 
-    if (value && (type === "money" || type === "percent"|| type === "number")) {
+    if (
+      value &&
+      (type === "money" || type === "percent" || type === "number")
+    ) {
       value += "";
       value = value.replace(regex, "");
-      value = value.replace(/\./g, "");
-      value = value.replace(/,/g, "");
+      console.log(value);
+      if (thousandSeparator === ".") value = value.replace(/\./g, "");
+      console.log(value, Number(value));
+
+      if (thousandSeparator === ",") value = value.replace(/,/g, "");
       value = value.replace(/ %/g, "");
-      updated[event.target.name] = Number(value);
+      updated[event.target.name] = Number(value) || value;
     } else if (value && type === "percent1") {
       value += "";
       value = value.replace(/ %/g, "");
@@ -116,16 +123,16 @@ const SimpleInput = ({
     "fade-in": !isvalid,
   });
 
-  const wrapperClass =  classNames("simpleinput", {
+  const wrapperClass = classNames("simpleinput", {
     "with-text": localValue,
     "with-errors": validated && !isvalid,
-    "readonly": readonly,
+    readonly: readonly,
   });
 
-  const setFocus = ()=>{
-    if(inputField.current && inputField.current.focus)
-      inputField.current.focus()
-  }
+  const setFocus = () => {
+    if (inputField.current && inputField.current.focus)
+      inputField.current.focus();
+  };
 
   return (
     <div className={wrapperClass}>

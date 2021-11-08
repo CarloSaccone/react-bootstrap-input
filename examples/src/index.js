@@ -64,7 +64,7 @@ const App = () => {
                   placeholder="Your email"
                   onChange={filterChange}
                   onValidationChange={validationChange}
-                  required
+                  
                   validated
                   autoFocus
                   pattern={
