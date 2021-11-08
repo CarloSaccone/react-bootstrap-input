@@ -64,7 +64,6 @@ const App = () => {
                   placeholder="Your email"
                   onChange={filterChange}
                   onValidationChange={validationChange}
-                  
                   validated
                   autoFocus
                   pattern={
@@ -81,6 +80,15 @@ const App = () => {
                   type="money"
                   name="salary"
                   placeholder="Desired salary"
+                  onChange={filterChange}
+                />
+                <SimpleInput
+                  formObj={form}
+                  type="money"
+                  name="salary1"
+                  thousandSeparator=","
+                  decimalSeparator="."
+                  placeholder="Desired salary (dot)"
                   onChange={filterChange}
                 />
               </div>

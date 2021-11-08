@@ -21,6 +21,7 @@ const SimpleInput = ({
   max,
   ns,
   children,
+  decimalSeparator = ",",
   thousandSeparator = ".",
 }) => {
   const [isvalid, setisvalid] = useState();
@@ -146,6 +147,8 @@ const SimpleInput = ({
           readonly={readonly}
           autoFocus={autoFocus}
           currency={currency}
+          decimalSeparator={decimalSeparator}
+          thousandSeparator={thousandSeparator}
         />
 
         <TextField

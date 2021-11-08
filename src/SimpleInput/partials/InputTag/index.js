@@ -10,7 +10,9 @@ const InputTag = ({
   readonly,
   autoFocus,
   currency,
-  inputRef
+  inputRef,
+  decimalSeparator = ",",
+  thousandSeparator = ".",
 }) => {
   const onNumericValueChange = (e) => {
     if (e.target.value !== value) {
@@ -24,11 +26,13 @@ const InputTag = ({
       suffix = ` ${currency}`;
       return (
         <NumberFormat
-          getInputRef = {(el) => {inputRef.current = el}} 
+          getInputRef={(el) => {
+            inputRef.current = el;
+          }}
           value={value}
           className="form-control"
-          decimalSeparator=","
-          thousandSeparator="."
+          decimalSeparator={decimalSeparator}
+          thousandSeparator={thousandSeparator}
           suffix={suffix}
           name={name}
           readOnly={readonly}
@@ -40,12 +44,14 @@ const InputTag = ({
       suffix = ``;
       return (
         <NumberFormat
-          getInputRef = {(el) => {inputRef.current = el}} 
+          getInputRef={(el) => {
+            inputRef.current = el;
+          }}
           placeholder=""
           value={value}
           className="form-control"
-          decimalSeparator=","
-          thousandSeparator="."
+          decimalSeparator={decimalSeparator}
+          thousandSeparator={thousandSeparator}
           suffix={suffix}
           name={name}
           readOnly={readonly}
@@ -53,31 +59,35 @@ const InputTag = ({
           autoFocus={autoFocus}
         />
       );
-      case "tel":
-        suffix = ``;
-        return (
-          <NumberFormat          
-            getInputRef = {(el) => {inputRef.current = el}} 
-            type="tel"
-            placeholder=""
-            value={value}
-            className="form-control"
-            suffix={suffix}
-            name={name}
-            readOnly={readonly}
-            onChange={onNumericValueChange}
-            autoFocus={autoFocus}
-          />
-        );
+    case "tel":
+      suffix = ``;
+      return (
+        <NumberFormat
+          getInputRef={(el) => {
+            inputRef.current = el;
+          }}
+          type="tel"
+          placeholder=""
+          value={value}
+          className="form-control"
+          suffix={suffix}
+          name={name}
+          readOnly={readonly}
+          onChange={onNumericValueChange}
+          autoFocus={autoFocus}
+        />
+      );
     case "percent":
     case "percent1":
       return (
         <NumberFormat
-          getInputRef = {(el) => {inputRef.current = el}} 
+          getInputRef={(el) => {
+            inputRef.current = el;
+          }}
           value={value}
           className="form-control"
-          decimalSeparator=","
-          thousandSeparator="."
+          decimalSeparator={decimalSeparator}
+          thousandSeparator={thousandSeparator}
           suffix=" %"
           readOnly={readonly}
           name={name}
@@ -88,7 +98,9 @@ const InputTag = ({
     case "date":
       return (
         <NumberFormat
-          getInputRef = {(el) => {inputRef.current = el}} 
+          getInputRef={(el) => {
+            inputRef.current = el;
+          }}
           value={value}
           name={name}
           className="form-control"
