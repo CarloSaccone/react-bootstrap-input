@@ -21,8 +21,8 @@ const SimpleInput = ({
   max,
   ns,
   children,
-  decimalSeparator = ",",
-  thousandSeparator = ".",
+  decimalSeparator = ".",
+  thousandSeparator = "'",
 }) => {
   const [isvalid, setisvalid] = useState();
   const [localValue, setlocalValue] = useState("");
@@ -72,9 +72,10 @@ const SimpleInput = ({
       value = value.replace(regex, "");
       console.log(value);
       if (thousandSeparator === ".") value = value.replace(/\./g, "");
+      if (thousandSeparator === ",") value = value.replace(/,/g, "");
+      if (thousandSeparator === "'") value = value.replace(/'/g, "");
       console.log(value, Number(value));
 
-      if (thousandSeparator === ",") value = value.replace(/,/g, "");
       value = value.replace(/ %/g, "");
       updated[event.target.name] = Number(value) || value;
     } else if (value && type === "percent1") {

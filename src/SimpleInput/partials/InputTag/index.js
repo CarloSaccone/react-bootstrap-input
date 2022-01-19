@@ -11,10 +11,11 @@ const InputTag = ({
   autoFocus,
   currency,
   inputRef,
-  decimalSeparator = ",",
-  thousandSeparator = ".",
+  decimalSeparator = ".",
+  thousandSeparator = "'",
 }) => {
   const onNumericValueChange = (e) => {
+    console.log(e.target.value);
     if (e.target.value !== value) {
       onChange(e);
     }
@@ -36,7 +37,7 @@ const InputTag = ({
           suffix={suffix}
           name={name}
           readOnly={readonly}
-          onChange={onChange}
+          onChange={onNumericValueChange}
           autoFocus={autoFocus}
         />
       );
